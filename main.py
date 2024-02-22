@@ -1,21 +1,6 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# ## Параллельная обработка изображений в многозадачной среде
-
-# In[13]:
-
-
 import os
 from concurrent.futures import ThreadPoolExecutor
 from PIL import Image, ImageEnhance, ImageOps
-
-
-# ### Фильтры
-
-# 1. Фильтр сепии
-
-# In[14]:
 
 
 def sepia(inp, out_path):
@@ -27,11 +12,6 @@ def sepia(inp, out_path):
         print(f'К файлу {inp} невозможно применить фильтр в виду ошибки: {str(e)}')
 
 
-# 2. Фильтр резкости
-
-# In[15]:
-
-
 def sharpen(inp, out_path):
     try:
         image = Image.open(inp)
@@ -41,11 +21,6 @@ def sharpen(inp, out_path):
         print(f'К файлу {inp} невозможно применить фильтр в виду ошибки: {str(e)}')
 
 
-# 3. Фильтр уменьшения размера
-
-# In[16]:
-
-
 def resize(inp, out_path):
     try:
         image = Image.open(inp)
@@ -53,11 +28,6 @@ def resize(inp, out_path):
         resized_image.save(out_path)
     except Exception as e:
         print(f'К файлу {inp} невозможно применить фильтр в виду ошибки: {str(e)}')
-
-
-# ### Обработка изображений
-
-# In[18]:
 
 
 def process(inp, out_folder):
